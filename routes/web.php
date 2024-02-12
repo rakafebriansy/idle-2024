@@ -1,7 +1,27 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\AjaxController;
+use App\Http\Controllers\Admin\ExportExcelController;
+use App\Http\Controllers\Admin\KompetisiFinal;
+use App\Http\Controllers\Admin\KompetisiPenyisihan1;
+use App\Http\Controllers\Admin\KompetisiPenyisihan2;
+use App\Http\Controllers\Admin\MahasiswaController;
+use App\Http\Controllers\Admin\MailController;
+use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\PostImageController;
+use App\Http\Controllers\Admin\TimController;
 use App\Kategori;
-
+use App\Mahasiswa;
+use App\Ormawa;
+use App\Penilaian;
+use App\Peserta;
+use App\Post;
+use App\PostImage;
+use App\Submission;
+use App\Tim;
+use App\User;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
