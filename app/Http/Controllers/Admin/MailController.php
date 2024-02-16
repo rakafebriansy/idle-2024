@@ -101,14 +101,15 @@ class MailController extends Controller
         $mailer = app()->make(\Snowfire\Beautymail\Beautymail::class);
         $kode = md5('kontol');
         $kategori = Kategori::with('ormawa')->find(1);
-        $email = 'miqdad.farcha@gmail.com';
-        $tim = Tim::find(5);
+        $email = 'contact.rakafebrian@gmail.com';
+        $tim = Tim::find(30);
         $mailer->send('mails.daftar', compact('tim', 'kategori', 'kode'), function ($message) use ($email, $kategori) {
             $message
-                ->from(strtolower($kategori->ormawa->nama_ormawa) . '@idle-unej.my.id')
+                ->from('_mainaccount@idlefasilkom.blog')
                 ->to($email)
                 ->subject('Pendaftaran IDLe');
         });
+        dd('success');
 
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\AjaxController;
 use App\Http\Controllers\Admin\ExportExcelController;
@@ -21,7 +23,8 @@ use App\PostImage;
 use App\Submission;
 use App\Tim;
 use App\User;
-use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,8 +43,9 @@ Route::post('/faq/ask', 'HomeController@ask')->name('faq.ask');
 
 Auth::routes();
 
+// Route::get('/register', 'RegisterController@create')->name('register');
 // Route::get('/register', function(){
-//     return redirect('/');
+//     // return redirect('/');
 // });
 
 Route::get('/post/{post}', 'Admin\PostController@show')->name('post.show');
