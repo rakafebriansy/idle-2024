@@ -21,7 +21,7 @@ return [
         'senderName'  => null,
         'reminder'    => null,
         'unsubscribe' => null,
-        'address'     => null,
+        'address'     => "mail.idlefasilkom.blog",
 
         'logo'        => [
             'path'   => '%PUBLIC%/vendor/beautymail/assets/images/sunny/logo.png',

@@ -1,2 +1,2 @@
-<h1>Hi, {{ $name }}</h1>
-<p>Send Email from Laravel.</p>
+<h1>Hi, bro</h1>
+<p>Send email from Laravel.</p>

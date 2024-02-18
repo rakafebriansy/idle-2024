@@ -101,7 +101,7 @@ class MailController extends Controller
         $mailer = app()->make(\Snowfire\Beautymail\Beautymail::class);
         $kode = md5('kontol');
         $kategori = Kategori::with('ormawa')->find(1);
-        $email = 'contact.rakafebrian@gmail.com';
+        $email = 'farelmaestro2@gmail.com';
         $tim = Tim::find(30);
         $mailer->send('mails.daftar', compact('tim', 'kategori', 'kode'), function ($message) use ($email, $kategori) {
             $message
@@ -109,33 +109,5 @@ class MailController extends Controller
                 ->to($email)
                 ->subject('Pendaftaran IDLe');
         });
-    }
-    public function simple_email() {
-        $data = array('name' => "Joi die");
-        Mail::send(['text' => 'mail'], $data, function($message) {
-            $message->to('devnote16@gmail.com' , 'Devnote Tutorial')->subject('Laravel Simple Mail Testing');
-            $message->from('devnote@gmail.com' , 'Joi die');
-        });
-        echo "Great! Simple mail successfully send!";
-    }
-
-    public function html_email() {
-        $data = array('name' => "Joi die");
-        Mail::send('mails.test', $data, function($message){
-            $message->to('devnote16@gmail.com', 'Devnote Tutorial')->subject('Laravel HTML Mail Testing');
-            $message->from('devnote@gmail.com' ,'Joi die');
-        });
-        echo "Great! HTML mail successfully send!";
-    }
-
-    public function attach_email () {
-        $data = array('name' => "Joi die");
-        Mail::send('mail', $data, function($message){
-            $message->to('devnote16@gmail.com', 'Devnote Tutorial')->subject('Laravel Attachment Mail Testing' );
-            $message->attach('D:\blog\public\logo\devnote.png');
-            $message->attach('D:\blog\public\text\devnote.txt');
-            $message->from('devnote@gmail.com', 'Joi die');
-        });
-        echo "Great! Attachment mail successfully send!";
     }
 }
