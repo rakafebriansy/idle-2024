@@ -9,6 +9,7 @@ use App\Peserta;
 use App\Tim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class KompetisiPenyisihan1 extends Controller
 {
@@ -110,7 +111,6 @@ class KompetisiPenyisihan1 extends Controller
         foreach ($pesertas as $peserta) {
             Peserta::linkPesertaToTim($peserta->nim, $tim->id);
         }
-
         $mailer = app()->make(\Snowfire\Beautymail\Beautymail::class);
         $kode = $tim->submissionid;
         foreach ($mahasiswas as $mahasiswa) {

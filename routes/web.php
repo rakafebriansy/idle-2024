@@ -56,6 +56,9 @@ Route::get('/kompetisi/{kategori}/peserta', 'KompetisiController@getPesertasByCa
 
 Route::get('/submit/{token}', 'SubmissionController@getPageSubmit')->name('kompetisi.submit.index');
 Route::post('/submit/{token}', 'SubmissionController@submitFile')->name('kompetisi.submit.store');
+Route::get('/simple_email','MailController@simple_email');
+Route::get('/html_email','MailController@html_email');
+Route::get('/attachment_email','MailController@attach_email');
 
 
 Route::get('/test', function (){
