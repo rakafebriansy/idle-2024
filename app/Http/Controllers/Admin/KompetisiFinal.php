@@ -33,7 +33,11 @@ class KompetisiFinal extends Controller
     {
         // TODO : Return view create
         $kategori = Kategori::where('kategori', $id_kategori)->get()->first();
-        $tims = Tim::where('id_kategori', $kategori->id)->where('babak', '=', 2)->get();
+        if ($kategori->id_ormawa == 1 || $kategori->id_ormawa == 3 || $kategori->kategori == 'data-mining'){
+            $tims = Tim::where('id_kategori', $kategori->id)->where('babak', '=', 1)->get();
+        } else {
+            $tims = Tim::where('id_kategori', $kategori->id)->where('babak', '=', 2)->get();
+        }
         return view('admin.pages.add_final', compact('kategori', 'tims'));
     }
 
@@ -58,7 +62,7 @@ class KompetisiFinal extends Controller
                 $email = $peserta->mahasiswa->email;
                 $mailer->send('mails.lolos', compact('tahap', 'tim_', 'kategori', 'nama', 'kode'), function ($message) use ($email) {
                     $message
-                        ->from(strtolower(Auth::user()->name) . '@idle-unej.my.id')
+                        ->from('_mainaccount@idlefasilkom.blog')
                         ->to($email)
                         ->subject('Pengumuman Final');
                 });

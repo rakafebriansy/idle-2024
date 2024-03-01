@@ -24,16 +24,24 @@
                     <li><a class="treeview-item {{ request()->is('penyisihan-1/set-nilai') ? 'active' : '' }}" href="{{ route('admin.penyisihan-1.set-nilai') }}"><i class="icon fa fa-trophy"></i>Set Nilai</a></li>
             </ul>
         </li>
-
-        <li class="treeview {{ request()->is('admin/penyisihan-2/*') ? 'is-expanded' : '' }}"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kompetisi (Penyisihan 2)</span><i class="treeview-indicator fa fa-angle-right"></i></a>
-            <ul class="treeview-menu">
-                @foreach(\App\Kategori::where('id_ormawa', \Illuminate\Support\Facades\Auth::user()->id_ormawa)->get() as $kategori)
-                    <li><a class="treeview-item {{ request()->is('admin/penyisihan-2/'.$kategori->kategori) ? 'active' : '' }}" href="{{ route('admin.penyisihan-2.index', ['kategori' => $kategori->kategori]) }}"><i class="icon fa fa-circle-o"></i>{{ $kategori->nama_kategori }}</a></li>
-                @endforeach
-                    <li><a class="treeview-item {{ request()->is('penyisihan-2/set-nilai') ? 'active' : '' }}" href="{{ route('admin.penyisihan-2.set-nilai') }}"><i class="icon fa fa-trophy"></i>Set Nilai</a></li>
-            </ul>
-        </li>
-
+        
+        @if ($kategori->id_ormawa == 1 || $kategori->id_ormawa == 3)
+            <div></div>
+        @else
+            <li class="treeview {{ request()->is('admin/penyisihan-2/*') ? 'is-expanded' : '' }}"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kompetisi (Penyisihan 2)</span><i class="treeview-indicator fa fa-angle-right"></i></a>
+                <ul class="treeview-menu">
+                    @foreach(\App\Kategori::where('id_ormawa', \Illuminate\Support\Facades\Auth::user()->id_ormawa)->get() as $kategori)
+                        @if ($kategori->kategori == 'data-mining')
+                            <div></div>
+                        @else
+                            <li><a class="treeview-item {{ request()->is('admin/penyisihan-2/'.$kategori->kategori) ? 'active' : '' }}" href="{{ route('admin.penyisihan-2.index', ['kategori' => $kategori->kategori]) }}"><i class="icon fa fa-circle-o"></i>{{ $kategori->nama_kategori }}</a></li>
+                        @endif
+                    @endforeach
+                        <li><a class="treeview-item {{ request()->is('penyisihan-2/set-nilai') ? 'active' : '' }}" href="{{ route('admin.penyisihan-2.set-nilai') }}"><i class="icon fa fa-trophy"></i>Set Nilai</a></li>
+                </ul>
+            </li>
+        @endif
+    
         <li class="treeview {{ request()->is('admin/final/*') ? 'is-expanded' : '' }}"><a class="app-menu__item" href="#" data-toggle="treeview"><i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">Kompetisi (Final)</span><i class="treeview-indicator fa fa-angle-right"></i></a>
             <ul class="treeview-menu">
                 @foreach(\App\Kategori::where('id_ormawa', \Illuminate\Support\Facades\Auth::user()->id_ormawa)->get() as $kategori)

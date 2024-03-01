@@ -46,11 +46,14 @@
                    <h4>Deskripsi Lomba</h4>
                    <p class="text-justify">
                      User Interface dan User Experience (UI & UX) adalah sebuah desain produk yang berorientasi kepada tampilan, kenyamanan dan kemudahan user ketika menggunakannya. Lomba desain interaksi produk yang berorientasi pada kenyamanan dan kemudahan bagi pengguna.
-                     Fokus utama pada kategori ini pada tahun ini adalah membantu UMKM dalam meningkatkan ekonomi. 
+                     Fokus utama pada kategori UI/UX pada tahun ini adalah peningkatan pelayanan publik, di mana mahasiswa diharapkan memiliki inovasi baru untuk membantu meningkatkan pelayanan publik.
                      <br>Note.untuk ketua tim bisa join ke grub WhatsApp yang link nya sudah tertera di rulebook, semangat!!
                      </p>
-                     <a class="btn btn-success shadow" href="{{ asset('assets/rulebook/'.$kategori->kategori.'.pdf') }}">Rule Book</a>
-                     <a class="btn btn-success shadow" href="{{ asset('assets/template/'.$kategori->kategori.'.docx') }}">Template</a>
+                     <!--<a class="btn btn-success shadow" href="{{ asset('assets/rulebook/'.$kategori->kategori.'.pdf') }}">Rule Book</a>-->
+                      <a class="btn btn-success shadow" href=" https://bit.ly/RulebookITeC2024">Rule Book</a>
+                     <!--<a class="btn btn-success shadow" href="{{ asset('assets/template/'.$kategori->kategori.'.docx') }}">Template</a>-->
+                       <a class="btn btn-success shadow" href="https://bit.ly/TemplateProposalTahap1UIUX">Template</a>
+                    
                      <a class="btn btn-success shadow" href="{{ route('kompetisi.peserta', ['kategori' => $kategori->kategori]) }}">Daftar Peserta</a>
                </div>
            </div>

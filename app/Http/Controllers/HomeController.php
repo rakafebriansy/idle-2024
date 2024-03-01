@@ -41,8 +41,8 @@ class HomeController extends Controller
 
     public function ask(Request $request)
     {
-        $no_bits = '6282245482429';     $no_itec = '6282338251752';
-        $no_icom = '6285732442883';     $no_laosarena = '6285855089931';
+        $no_bits = '6281367919852';     $no_itec = '6281367919852';
+        $no_icom = '6281367919852';     $no_laosarena = '6281367919852';
 
         $URl = "api.whatsapp.com/send?phone=%T%&text=%M%";
 
@@ -52,9 +52,9 @@ class HomeController extends Controller
         if($kategori=="PPL" || $kategori=="Bisnis TIK" || $kategori=="Smart City" || $kategori=="PKM-GO" || $kategori=="KTI" )
         {
             $target = $no_bits;
-        }else if($kategori=="UI/UX" || $kategori=="IOT"){
+        }else if($kategori=="UI/UX" || $kategori=="IOT" || $kategori=="Data Mining"){
             $target = $no_itec;
-        }else if($kategori=="Game" || $kategori=="CPC"){
+        }else if($kategori=="Game" || $kategori=="CPC" || $kategori=="PAP" ){
             $target = $no_icom;
         }else if($kategori=="CTF" ){
             $target = $no_laosarena;

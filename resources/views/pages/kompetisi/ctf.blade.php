@@ -46,7 +46,8 @@
                     <br>Untuk tipe Capture the Flag sendiri ada berbagai macam, ada yang tipenya jeopardy, yang dimana jeopardy ini menggunakan server untuk menyimpan soal, yang dimana soalnya bisa berbentuk web exploitation, reverse engineering, binary exploitation, forensic, cryptography, steganography, dan lain lain dengan tujuan yang tetap sama yaitu mencari string/flag yang disembunyikan oleh server.
                     <br>Untuk tipe lainnya ada Attack and Defense (War) yang dimana masing-masing peserta / tim akan diberikan virtual machine / image server. Yang nantinya peserta akan diminta menghardening sistem tersebut selamat periode waktu tertentu (fase bertahan), lalu nantinya akan masuk ke fase selanjutnya yaitu fase menyerang yang dimana para competitor akan saling meyerang satu sistem dengan yang lainnya. Yang tujuan mendapatkan pointnya bisa berbeda, bisa dengan mendapatkan flag juga. Atau bisa dihitung dari waktu downtime yang dialami oleh competitor lainnya. (jadi pemenang dihitung dari waktu uptime server terbanyak).
                      </p>
-                     <a class="btn btn-success shadow" href="{{ asset('assets/rulebook/'.$kategori->kategori.'.pdf') }}">Rule Book</a>
+                     <!--<a class="btn btn-success shadow" href="{{ asset('assets/rulebook/'.$kategori->kategori.'.pdf') }}">Rule Book</a>-->
+                     <a class="btn btn-success shadow" href="https://drive.google.com/file/d/1BWUEosFhzYQ_8LqAgxxHMhB2TxYjsef2/view?usp=sharing">Rule Book</a>
                      <a class="btn btn-success shadow" href="{{ route('kompetisi.peserta', ['kategori' => $kategori->kategori]) }}">Daftar Peserta</a>
                </div>
            </div>
@@ -93,24 +94,24 @@
                         <div class="col-md-6">
                             <div class="form-group">
                               <label>Nama Anggota 1</label>
-                              <input class="form-control" type="text" name="nama[]" value="{{ old('nama[1]') }}" required placeholder="Nama Anggota 1"></div>
+                              <input class="form-control" type="text" name="nama[]" value="{{ old('nama[1]') }}"  placeholder="Nama Anggota 1"></div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                               <label>NIM Anggota 1</label>
-                              <input class="form-control" type="number" name="nim[]" value="{{ old('nim[1]') }}" required placeholder="NIM Anggota 1"></div>
+                              <input class="form-control" type="number" name="nim[]" value="{{ old('nim[1]') }}"  placeholder="NIM Anggota 1"></div>
                         </div>
                     </div>
                     <div class="form-row">
                         <div class="col-md-6">
                             <div class="form-group">
                               <label>Email Anggota 1</label>
-                              <input class="form-control" type="email" name="email[]" value="{{ old('email[1]') }}" required placeholder="Email Anggota 1"></div>
+                              <input class="form-control" type="email" name="email[]" value="{{ old('email[1]') }}"  placeholder="Email Anggota 1"></div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                               <label>No. Whatsapp Anggota 1</label>
-                              <input class="form-control" type="text" name="no_hp[]" value="{{ old('no_hp[1]') }}" required placeholder="No. Whatsapp Anggota 1"></div>
+                              <input class="form-control" type="text" name="no_hp[]" value="{{ old('no_hp[1]') }}" placeholder="No. Whatsapp Anggota 1"></div>
                         </div>
                     </div>
                 </div>
@@ -140,7 +141,6 @@
                         </div>
                     </div>
                 </div>
-              	<i style="color: white;">(kosongi anggota 2 jika hanya mendaftarkan 2 peserta)</i>
                 <div class="text-center" ><button class="btn btn-success" id="reg-submit" type="submit">Daftar</button></div>
 				
             </form>

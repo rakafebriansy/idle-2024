@@ -5,11 +5,11 @@
                 <div class="col-sm-4 col-md-3 item">
                     <h3>Kontak</h3>
                     <ul>
-                        <li><a href="mailto:humas@idle-unej.my.id">E-Mail : humas@idle-2022.me</a></li>
-                        <li><a href="/faq#tanya">6281294710595 (Alifta)</a></li>
-                        <li><a href="/faq#tanya">6282233949280 (Ananda)</a></li>
-                        <li><a href="/faq#tanya">6285732442883 (Dinda)</a></li>
-                        <li><a href="/faq#tanya">6285855089931 (Nadya)</a></li>
+                        <li><a href="mailto:idlefasilkom@gmail.com">E-Mail : idlefasilkom@gmail.com</a></li>
+                        <!--<li><a href="/faq#tanya">6282143221866 (Lia)</a></li>-->
+                        <!--<li><a href="/faq#tanya">6281290778869 (Ainol)</a></li>-->
+                        <!--<li><a href="/faq#tanya">6289685032961 (Satya)</a></li>-->
+                        <li><a href="/faq#tanya">6281367919852 (Monica)</a></li>
                     </ul>
                 </div>
                 <div class="col-sm-4 col-md-3 item">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-sm-4 col-md-3 item"></div>
                 <div class="col-lg-3 item social"><img src="{{asset('assets/img/logo_idle.png')}}" style="height: 92px;">
-                    <p class="copyright">Copyright &copy; IDLe  2022</p>
+                    <p class="copyright">Copyright &copy; IDLe  2024</p>
                 </div>
             </div>
         </div>

@@ -9,7 +9,6 @@ use App\Peserta;
 use App\Tim;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Mail;
 
 class KompetisiPenyisihan1 extends Controller
 {
@@ -87,7 +86,9 @@ class KompetisiPenyisihan1 extends Controller
                 if ($mahasiswa["nim"] == null) {
                     return redirect()->back()->with('error', 'Gagal mendaftar, karena NIM belum diisi');
                 } else if (preg_match("/[12][089123]241010[1-3][01][0-9]{2}/", $mahasiswa["nim"]) == 0) {
-                    return redirect()->back()->with('error', 'Gagal mendaftar, karena NIM tidak sesuai');;
+                    return redirect()->back()->with('error', 'Gagal mendaftar, karena NIM tidak sesuai');
+                } else if (preg_match("/[12][089123]241010[1-3][01][0-9]{2}@?(mail.unej.ac.id$)/", $mahasiswa["email"]) == 0) {
+                    return redirect()->back()->with('error', 'Gagal mendaftar, karena Email bukan email unej');
                 } else {
                     $mhs = Mahasiswa::createMahasiswa($mahasiswa["nim"], $mahasiswa["nama"], $mahasiswa["email"], $mahasiswa["no_hp"]);
 
@@ -97,7 +98,7 @@ class KompetisiPenyisihan1 extends Controller
                 if ($mahasiswa["nama"] == null && $mahasiswa["nim"] == null && $mahasiswa["email"] == null && $mahasiswa["no_hp"] == null) {
                     continue;
                 } else if (preg_match("/[12][089123]241010[1-3][01][0-9]{2}/", $mahasiswa["nim"]) == 0) {
-                    return redirect()->back()->with('error', 'Gagal mendaftar, karena NIM tidak sesuai');;
+                    return redirect()->back()->with('error', 'Gagal mendaftar, karena NIM tidak sesuai');
                 } else {
                     $mhs = Mahasiswa::createMahasiswa($mahasiswa["nim"], $mahasiswa["nama"], $mahasiswa["email"], $mahasiswa["no_hp"]);
 
@@ -111,6 +112,7 @@ class KompetisiPenyisihan1 extends Controller
         foreach ($pesertas as $peserta) {
             Peserta::linkPesertaToTim($peserta->nim, $tim->id);
         }
+
         $mailer = app()->make(\Snowfire\Beautymail\Beautymail::class);
         $kode = $tim->submissionid;
         foreach ($mahasiswas as $mahasiswa) {
@@ -120,7 +122,7 @@ class KompetisiPenyisihan1 extends Controller
             $email = $mahasiswa["email"];
             $mailer->send('mails.daftar', compact('tim', 'kategori', 'kode'), function ($message) use ($email, $kategori) {
                 $message
-                    ->from(strtolower($kategori->ormawa->nama_ormawa) . '@idle-unej.my.id')
+                    ->from('_mainaccount@idlefasilkom.blog')
                     ->to($email)
                     ->subject('Pendaftaran IDLe');
             });

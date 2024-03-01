@@ -102,12 +102,12 @@
         </div>
     </div>
 
-    <div class="box-event">
-            <div class="d-flex flex-row justify-content-center">
-                <img class="events" src="{{asset('assets/img/BITS.png')}}" alt="">
-                <img class="events" src="{{asset('assets/img/ITEC.png')}}" alt="">
-                <img class="events" src="{{asset('assets/img/icom.png')}}" alt="">
-                <img class="events" src="{{asset('assets/img/laos_arena.png')}}" alt="">
-            </div>
+    <div class="box-event" style="width: 100vw; height: 100px; overflow: hidden">
+        <div class="d-flex flex-row justify-content-center">
+                <img class="events" src="{{asset('assets/img/BITS.png')}}" alt="" style="width: auto !important; height: 40px !important;">
+                <img class="events" src="{{asset('assets/img/ITEC.png')}}" alt="" style="width: auto !important; height: 40px !important;">
+                <img class="events" src="{{asset('assets/img/icom.png')}}" alt="" style="width: auto !important; height: 40px !important;">
+                <img class="events" src="{{asset('assets/img/laos_arena.png')}}" alt="" style="width: auto !important; height: 40px !important;">
+        </div>
     </div>
 @endsection

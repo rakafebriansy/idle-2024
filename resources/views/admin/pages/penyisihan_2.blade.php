@@ -91,6 +91,8 @@
 
     <script>
         $(document).ready(function () {
+            var kategoriId = {{ $kategori->id }};
+            var isKategoriPAP = kategoriId === 2;
             $('#tim-table').DataTable({
                 processing: false,
                 serverSide: true,
@@ -109,7 +111,6 @@
                         data: 'pesertas',
                         render: function (data, type, row) {
                             content = "";
-                            console.log(data);
                             for (var i = 0; i < data.length; i++) {
                                 content += "<a href='/admin/mahasiswa/" + data[i]['nim'] + "'" + ">" + data[i]['mahasiswa']['nama'] + "</a>";
 
@@ -131,15 +132,46 @@
                     },
                     {
                         data: 'submission',
-                        render: function (data, type, row) {
-                            if (data != null) {
-                                return '<a href="/admin/ajax/download/' + data['token'] + '" class="align-items-center"><i class="fa fa-download" aria-hidden="true"></i> Unduh</a>';
+                        render: function (data_, type, row) {
+                            if (!isKategoriPAP) {
+                                if (data_ != null) {
+                                    console.log(data_);
+                                    return '<a href="/admin/ajax/download/' + data_['token'] + '" class="align-items-center"><i class="fa fa-download" aria-hidden="true"></i> Unduh</a>';
+                                } else {
+                                    return "Belum Melakukan Submission";
+                                }
                             } else {
-                                return "Belum Melakukan Submission";
+                                if (data_ != null) {
+                                console.log(data_.file_path);
+                                    data = JSON.parse(data_.file_path.replace(/&quot;/g,'"'));
+                                    return '<a href="' + data.link2 + '" class="align-items-center">' + data.link2 + '</a>';
+                                } else {
+                                    return "Link Tidak Tersedia";
+                                }
                             }
-
                         }
                     },
+                    // {
+                    //     data: 'submission.file_path',
+                    //     render: function (data_, type, row) {
+                    //         if (isKategoriPAP == false) {
+                    //             console.log(data);
+                    //             if (data_ != null) {
+                    //                 data = JSON.parse(data_.replace(/&quot;/g,'"'));
+                    //                 return '<a href="' + data.link2 + '" class="align-items-center">' + data.link2 + '</a>';
+                    //             } else {
+                    //                 return "Link Tidak Tersedia";
+                    //             }
+                    //         } else {
+                    //             if (data_ != null) {
+                    //                 console.log(data_);
+                    //                 return '<a href="/admin/ajax/download/' + data['token'] + '" class="align-items-center"><i class="fa fa-download" aria-hidden="true"></i> Unduh</a>';
+                    //             } else {
+                    //                 return "Belum Melakukan Submission";
+                    //             }
+                    //         }
+                    //     }
+                    // },
                     {   data: 'starred',
                         render: function (data, type, row) {
                             if (data == 0) {

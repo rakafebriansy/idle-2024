@@ -101,7 +101,7 @@ class MailController extends Controller
         $mailer = app()->make(\Snowfire\Beautymail\Beautymail::class);
         $kode = md5('kontol');
         $kategori = Kategori::with('ormawa')->find(1);
-        $email = 'farelmaestro2@gmail.com';
+        $email = '222410101050@mail.unej.ac.id';
         $tim = Tim::find(30);
         $mailer->send('mails.daftar', compact('tim', 'kategori', 'kode'), function ($message) use ($email, $kategori) {
             $message
@@ -109,5 +109,6 @@ class MailController extends Controller
                 ->to($email)
                 ->subject('Pendaftaran IDLe');
         });
+
     }
 }

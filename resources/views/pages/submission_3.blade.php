@@ -39,8 +39,16 @@
                   <li style="color: red">{{ $error }}</li>
                </div>
                @endforeach
+               @if ($tim->kategori->id_ormawa==1)
+               <h2>Halo {{$tim->nama_tim}}, Selamat!</h2>
+               <p>Tim anda telah melewati tahapan seleksi pada bidang lomba {{ $tim->kategori->nama_kategori }}. Pada tahap final anda diharuskan mengunggah <b>file .PDF</b> berisi <italic>file presentasi</italic></p>
+               @elseif ($tim->kategori->id_ormawa==2)
+               <h2>Halo {{$tim->nama_tim}}, Selamat!</h2>
+               <p>Tim anda telah melewati tahapan seleksi pada bidang lomba {{ $tim->kategori->nama_kategori }}. Pada tahap final anda diharuskan mengunggah <b>file .PDF</b> berisi <italic>file Power Point (presentasi)</italic></p>
+               @else
                <h2>Dear {{$tim->nama_tim}}, Selamat!</h2>
                <p>Tim anda telah melewati seluruh tahapan seleksi pada bidang lomba {{ $tim->kategori->nama_kategori }}. Pada tahap final anda diharuskan mengunggah <b>file .ZIP</b> berisi: <italic>proposal akhir</italic> dan <italic>file presentasi</italic></p>
+               @endif
                <div class="row">
                    <div class="col-lg-12">
 
@@ -53,11 +61,23 @@
                            </div>
 
                            @csrf
+                           @if ($tim->kategori->id_ormawa==1)
                            <div class="form-group">
+                               <label for="" style="float: left;">Silahkan masukan file (PDF)</label>
+                               <input type="file" name="file" class="form-control" id="contact-name" placeholder="File" required>
+                           </div>
+                           @elseif ($tim->kategori->id_ormawa==2)
+                           <div class="form-group">
+                               <label for="" style="float: left;">Silahkan masukan file (PDF)</label>
+                               <input type="file" name="file" class="form-control" id="contact-name" placeholder="File" required>
+                           </div>
+                           @else
+                            <div class="form-group">
                                <label for="" style="float: left;">Silahkan masukan file (ZIP)</label>
                                <input type="file" name="file" class="form-control" id="contact-name" placeholder="File" required>
                            </div>
-
+                           @endif
+                           
                            <div class="form-send">
                                <button type="submit" class="btn btn-success shadow">Submit</button>
                            </div>

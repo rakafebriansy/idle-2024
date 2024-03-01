@@ -35,6 +35,10 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/config-cache', function() {
+    Artisan::call('config:cache');
+    return 'Config cache has been cleared';
+}); 
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -56,7 +60,6 @@ Route::get('/kompetisi/{kategori}/peserta', 'KompetisiController@getPesertasByCa
 
 Route::get('/submit/{token}', 'SubmissionController@getPageSubmit')->name('kompetisi.submit.index');
 Route::post('/submit/{token}', 'SubmissionController@submitFile')->name('kompetisi.submit.store');
-
 
 
 Route::get('/test', function (){
@@ -138,4 +141,6 @@ Route::group(['namespace' => 'Admin', 'as' => 'admin.', 'prefix' => 'admin', 'mi
 });
 
 Route::get('/testmail', 'Admin\MailController@testing');
-Route::get('/sendEmail', 'Admin\MailController@sendEmail');
+Route::get('email', 'PHPMailerController@email')->name('email');
+ 
+Route::post('send-email', 'PHPMailerController@composeEmail')->name('send-email');
